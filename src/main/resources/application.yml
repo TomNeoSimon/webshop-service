@@ -1,0 +1,55 @@
+application:
+  cors:
+    allowed-origin: ${CLIENT_ORIGIN_URL}
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+  port: ${PORT}
+
+spring:
+  application:
+    name: webshop-service
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+        hbm2ddl:
+          auto: update
+        jdbc:
+          timezone: UTC
+        enable_lazy_load_no_trans: true
+        format_sql: true
+    show-sql: true
+
+  web:
+    resources:
+      add-mappings: false
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type: trace
+
+okta:
+  oauth2:
+    issuer: ${OKTA_OAUTH2_ISSUER}
+    audience: ${OKTA_OAUTH2_AUDIENCE}
+    client-id: ${OKTA_OAUTH2_CLIENT_ID}
+    client-secret: ${OKTA_OAUTH2_CLIENT_SECRET}
+    groups-claim: ${OKTA_OAUTH2_GROUPS_CLAIM}
