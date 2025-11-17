@@ -8,3 +8,7 @@ Final exam backend for the bookstore webshop. The backend is a serverless Java a
 
 ## How to run
 The backend is already deployed so the frontend will communicate with the live API.
+
+## Database information
+The database is also deployed on AWS so there is no need to set up a local database.
+The PostgreSQL database is reachable through the internet. The scheme of the database can be seen through the @Entity DB objects in this project
